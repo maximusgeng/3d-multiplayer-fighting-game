@@ -1,19 +1,20 @@
-# Fight! — 3D Multiplayer Fighting Game (Course Rework)
+# Fight! — 3D мультиплеерный файтинг
 
 <img src="Demo/arena.png" width="480">
 
-A 3D third-person multiplayer fighting game built with **Unity 6** and **Mirror** networking. One player hosts, the other joins over LAN — fight on PC or Android.
+Сетевой файтинг от третьего лица на **Unity 6** и **Mirror**: один игрок создаёт матч, второй подключается по локальной сети — можно играть с PC и с Android.
 
-Based on the open-source [Fight! project by Partha-Sarker](https://github.com/Partha-Sarker/Fighting-Game-3d-Multiplayer-Unity3d) (originally built on the legacy UNet API). This is my coursework rework of the project:
+## Что внутри
 
-- Migrated networking from legacy UNet to **Mirror (KCP transport)**
-- Reworked combat to run **server-side** — damage, shield blocking, death and last-man-standing win detection via `Command` / `ClientRpc` / `SyncVar`
-- Reworked lobby: host/join UI with connection error handling, round-robin spawn points, match restart and return to lobby
-- Cross-platform input: keyboard (PC) + virtual joystick (Android)
-- Character animations driven by Animation Events, synced over the network with `NetworkAnimator`
-- Player HUD with health bars and win/lose ratio (persisted with `PlayerPrefs`)
+- Сетевая часть на Mirror (KCP-транспорт): хост/подключение, синхронизация игроков, анимаций и интерфейса
+- **Серверная боевая логика**: урон, блок щитом, здоровье, смерть и победа последнего выжившего — через `Command` / `ClientRpc` / `SyncVar`
+- **Лобби**: хост/подключение с обработкой ошибок сети, круговое распределение точек спавна, рестарт матча и возврат в лобби
+- **Боёвка на Rigidbody**: движение, прыжок с рывком, меч / кулаки / магия, партиклы попаданий, тряска камеры
+- Анимации персонажа на Animation Events, синхронизированные через `NetworkAnimator`
+- Кроссплатформенный ввод: клавиатура (PC) и виртуальный джойстик (Android)
+- HUD: полоски здоровья игроков, статистика побед/поражений (`PlayerPrefs`)
 
-## Screenshots
+## Скриншоты
 
 <p>
   <img src="Demo/2_player.png" width="380">
@@ -24,20 +25,15 @@ Based on the open-source [Fight! project by Partha-Sarker](https://github.com/Pa
   <img src="Demo/home.png" width="380">
 </p>
 
-## Tech
+## Технологии
 
-- Unity 6000.3.10f1, C#
-- Mirror (KCP transport)
-- Rigidbody-based movement and jump-dash
-- TextMeshPro UI
+Unity 6000.3.10f1 · C# · Mirror (KCP) · Rigidbody · TextMeshPro
 
-## How to run
+## Запуск
 
-1. Open the project in Unity 6 (6000.3.10f1 or newer)
-2. Open the menu scene and press **Play** — Host or Join
-3. For real multiplayer: build for Windows/Android and connect both devices to the same local network
+1. Открыть проект в Unity 6 (6000.3.10f1 или новее)
+2. Открыть сцену меню и нажать **Play** — Host или Join
+3. Для игры по сети: собрать билд под Windows/Android и подключить устройства к одной локальной сети
 
-## Credits
-
-Original game — [Partha-Sarker](https://github.com/Partha-Sarker/Fighting-Game-3d-Multiplayer-Unity3d).
-UNet → Mirror migration, server-side combat rework, lobby and input improvements — Maxim Semenov.
+---
+Автор: Максим Семёнов
