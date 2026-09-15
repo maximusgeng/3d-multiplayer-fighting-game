@@ -21,7 +21,6 @@
   <img src="Demo/player.png" width="380">
 </p>
 <p>
-  <img src="Demo/ui.png" width="380">
   <img src="Demo/home.png" width="380">
 </p>
 
